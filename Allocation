@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	long long int t;
+	cin>>t;
+
+	for(int i=0; i<t; i++) {
+		long long int z;
+		long long int n,b,count=0;
+		cin>>n>>b;
+
+		long long int arr[n];
+		for(int j=0; j<n; j++) {
+			cin>>arr[j];
+		}
+		sort(arr, arr+n);
+
+		z=arr[0];
+		if(z<=b) {
+			count++;
+			for(int j=0; j<n; j++) {
+				if(z+arr[j]<=b){
+					count++;
+					z=z+arr[j];
+				}
+				else{
+					break;
+				}
+			}
+		}
+		cout<<"Case #"<<i+1<<": "<<count<<"\n";
+	}
+	return 0;
+}
