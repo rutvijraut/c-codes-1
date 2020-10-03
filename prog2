@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+long long func(int c){
+	return ((long long)(c+1)*c)/2;
+}
+int main(){
+	int t;
+	cin>>t;
+	
+	while(t){
+		int n;
+		cin>>n;
+		
+		int arr[n];
+		for(int i=0;i<n;i++){
+			cin>>arr[i];
+		}
+		
+		int count=1;
+		long long sum=0;
+		for(int i=1;i<n;i++){
+			if(arr[i-1] <= arr[i]){
+				count++;
+			}else{
+				sum+=func(count);
+				count=1;
+			}
+		}
+		sum+=func(count);
+		cout<<sum<<"\n";
+		t--;
+	}
+}
