@@ -1,0 +1,31 @@
+#include<iostream>
+#include<climits>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	
+	while(t){
+		int n;
+		cin>>n;
+		
+		long long sum=0;
+		int lstmin=INT_MAX;
+		while(n){
+			int x;
+			cin>>x;
+			if(x < lstmin){
+				lstmin=x;
+				sum+=x;
+			}else{
+				sum+=lstmin;
+			}
+			n--;
+		}
+		
+		cout<<sum<<"\n";
+		t--;
+	}
+	return 0;
+}
